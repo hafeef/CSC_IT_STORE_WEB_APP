@@ -1,0 +1,62 @@
+﻿@model CSC.IT.Store.ViewModels.Identity.SignInViewModel
+
+@{
+    ViewBag.Title = "SignIn";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row margintop">
+        <div class="col-md-push-3 col-md-6">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"><strong>User Login</strong> </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control login", @aria_describedby = "sizing-addon2", @autofocus = "autofocus", @placeholder = "Username" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control login", @aria_describedby = "sizing-addon2", @placeholder = "Password" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.RememberMe) Remember Me |
+                                @Html.ActionLink("Forgot Password?", "ForgotPassword", "Account")
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <div class="btn-group" role="group">
+
+                                <button type="submit" value="Sign In" class="btn btn-success">
+                                    Sign In
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
