@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\AdministrationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\AdministrationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\AdministrationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +73,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Administration\AdministrationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdministrationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Administration\AdministrationModel.edmx.diagram">
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\AdministrationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+      <LastGenOutput>AdministrationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Administration\AdministrationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+      <LastGenOutput>AdministrationModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,9 +14,9 @@ namespace CSC.IT.Store.Data.CodeFirst.Administration.DbConfigurations
             Property(b => b.BrandName).IsRequired()
                 .HasMaxLength(40).HasColumnType("varchar").HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
 
-            Property(b => b.CreatedDateTime).IsOptional().HasColumnType("smalldatetime");
-            Property(b => b.ModifiedDateTime).IsOptional().HasColumnType("smalldatetime");
-            Property(b => b.CreatedBy).IsOptional().HasMaxLength(100).HasColumnType("varchar");
+            Property(b => b.CreatedDateTime).HasColumnType("smalldatetime");
+            Property(b => b.ModifiedDateTime).HasColumnType("smalldatetime");
+            Property(b => b.CreatedBy).HasMaxLength(100).IsOptional().HasColumnType("varchar");
 
         }
     }

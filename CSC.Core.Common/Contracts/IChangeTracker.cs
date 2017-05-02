@@ -5,8 +5,8 @@ namespace CSC.Core.Common.Contracts
 {
     public interface IChangeTracker
     {
-        DateTimeOffset? CreatedDateTime { get; set; }
-        DateTimeOffset? ModifiedDateTime { get; set; }
+        DateTime? CreatedDateTime { get; set; }
+        DateTime? ModifiedDateTime { get; set; }
         string CreatedBy { get; set; }
         
     }

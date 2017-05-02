@@ -7,8 +7,8 @@ namespace CSC.IT.Store.Domain.Classes.Administration
     {
         public Guid BrandId { get; set; }
         public string BrandName { get; set; }
-        public DateTimeOffset? CreatedDateTime { get; set; }
-        public DateTimeOffset? ModifiedDateTime { get; set; }
+        public DateTime? CreatedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
         public string CreatedBy { get; set; }
     }
 }

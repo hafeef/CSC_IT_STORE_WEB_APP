@@ -49,6 +49,11 @@
   <ItemGroup>
     <Compile Include="Administration\AdminDataContext.cs" />
     <Compile Include="Administration\DbConfigurations\BrandDbConfig.cs" />
+    <Compile Include="Administration\Migrations\201705021725416_CreateBrandTable.cs" />
+    <Compile Include="Administration\Migrations\201705021725416_CreateBrandTable.Designer.cs">
+      <DependentUpon>201705021725416_CreateBrandTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +69,11 @@
       <Project>{35e535b7-dcb3-400a-b036-46b65b3a10a0}</Project>
       <Name>CSC.IT.Store.Domain.Classes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administration\Migrations\201705021725416_CreateBrandTable.resx">
+      <DependentUpon>201705021725416_CreateBrandTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
