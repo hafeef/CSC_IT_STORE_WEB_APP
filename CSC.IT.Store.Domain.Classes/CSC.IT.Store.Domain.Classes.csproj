@@ -43,5 +43,11 @@
     <Compile Include="Administration\Brand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSC.Core.Common\CSC.Core.Common.csproj">
+      <Project>{34c13897-76ef-4f86-afc2-37d90b1f3ad1}</Project>
+      <Name>CSC.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,12 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Administration\AdminDataContext.cs" />
+    <Compile Include="Administration\DbConfigurations\BrandDbConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSC.Core.Common\CSC.Core.Common.csproj">
+      <Project>{34c13897-76ef-4f86-afc2-37d90b1f3ad1}</Project>
+      <Name>CSC.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSC.IT.Store.Domain.Classes\CSC.IT.Store.Domain.Classes.csproj">
+      <Project>{35e535b7-dcb3-400a-b036-46b65b3a10a0}</Project>
+      <Name>CSC.IT.Store.Domain.Classes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

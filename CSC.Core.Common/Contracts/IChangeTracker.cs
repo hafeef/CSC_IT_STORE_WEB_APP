@@ -7,7 +7,7 @@ namespace CSC.Core.Common.Contracts
     {
         DateTimeOffset? CreatedDateTime { get; set; }
         DateTimeOffset? ModifiedDateTime { get; set; }
-        string Id { get; set; }
-        ApplicationUser CreatedBy { get; set; }
+        string CreatedBy { get; set; }
+        
     }
 }
