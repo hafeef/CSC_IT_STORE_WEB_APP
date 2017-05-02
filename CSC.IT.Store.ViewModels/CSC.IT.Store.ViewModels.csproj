@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Identity\ChangePasswordViewModel.cs" />
     <Compile Include="Identity\RegisterViewModel.cs" />
     <Compile Include="Identity\SignInViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

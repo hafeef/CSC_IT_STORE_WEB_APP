@@ -1,4 +1,5 @@
 ﻿using CSC.Core.Common.Identity;
+using CSC.Core.Common.Services;
 using CSC.IT.Store.ViewModels.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,8 +15,14 @@ namespace CSC.IT.Store.CustomerFacing.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser, string> _signInManager;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser, string> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser, string> signInManager)
         {
+            if (userManager != null)
+            {
+                userManager.EmailService = new EmailService();
+                userManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(new StoreDataProtector());
+            }
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -30,8 +37,6 @@ namespace CSC.IT.Store.CustomerFacing.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
                 var applicationUser = new ApplicationUser()
                 {
                     FirstName = model.FirstName,
@@ -41,16 +46,29 @@ namespace CSC.IT.Store.CustomerFacing.Controllers
                     UserName = model.UserName
                 };
 
-
                 var creationResult = await _userManager.CreateAsync(applicationUser, model.Password);
                 if (creationResult.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(applicationUser.Id);
+                    var confirmationUrl = Url.Action("ConfirmEmail", "Account", new { userId = applicationUser.Id, token = emailConfirmationToken }, Request.Url.Scheme);
+                    await _userManager.SendEmailAsync(applicationUser.Id, "Email Confirmation", $"Confirm by visiting the below link: {confirmationUrl}");
+                    ViewBag.Message = "Please check your In-box and confirm your email address.";
+                    return View("ConfirmEmail");
                 }
-
                 ModelState.AddModelError(string.Empty, creationResult.Errors.FirstOrDefault());
             }
             return View(model);
+        }
+
+        public async Task<ActionResult> ConfirmEmail(string userId, string token)
+        {
+            var result = await _userManager.ConfirmEmailAsync(userId, token);
+            if (result.Succeeded)
+            {
+                ViewBag.Message = $"Your email has been confirmed. Click <a href='{Url.Action("SignIn")}'>here</a> to login";
+                return View();
+            }
+            return View("Error");
         }
 
         public ActionResult SignIn()
