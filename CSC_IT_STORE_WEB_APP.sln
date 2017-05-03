@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSC.IT.Store.CustomerFacing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSC.IT.Store.ViewModels", "CSC.IT.Store.ViewModels\CSC.IT.Store.ViewModels.csproj", "{121AE014-400F-496A-A4DD-E2AB913E0028}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CSC.IT.Store.Database", "CSC.IT.Store.Database\CSC.IT.Store.Database.sqlproj", "{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{121AE014-400F-496A-A4DD-E2AB913E0028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{121AE014-400F-496A-A4DD-E2AB913E0028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{121AE014-400F-496A-A4DD-E2AB913E0028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D58C7E7-97C3-4683-8BBC-4E679B1BE5BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
