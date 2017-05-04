@@ -124,6 +124,7 @@
     <Folder Include="Administration\Tables\" />
     <Folder Include="Administration\Stored Procedures\" />
     <Folder Include="Security\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Identity\Tables\AspNetRoles.sql">
@@ -164,5 +165,8 @@
     </Build>
     <Build Include="Security\Administration.sql" />
     <Build Include="Security\Identity.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\Version1.dacpac" />
   </ItemGroup>
 </Project>
